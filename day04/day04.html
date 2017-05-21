@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day04</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>获取笔记本列表功能</h2>
+<p>业务分析</p>
+<p><img src="1.png" /></p>
+<h3>实现持久层</h3>
+<ol>
+<li>
+<p>添加持久层接口NotebookDao.java:</p>
+<pre><code>public interface NotebookDao {
+
+    List&lt;Map&lt;String, Object&gt;&gt; 
+        findNotebooksByUserId(String userId);
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加MyBatis映射文件 mappers/NotebookMapper.xml</p>
+<pre><code>&lt;mapper namespace=&quot;cn.tedu.note.dao.NotebookDao&quot;&gt;
+    &lt;select id=&quot;findNotebooksByUserId&quot;
+        parameterType=&quot;string&quot;
+        resultType=&quot;map&quot;&gt;
+        select
+            cn_notebook_id as &quot;id&quot;,
+            cn_notebook_name as &quot;name&quot;
+        from 
+            cn_notebook
+        where   
+            cn_user_id=#{userId}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>public class NotebookDaoTestCase
+    extends BaseTestCase{
+
+    NotebookDao dao;
+
+    @Before 
+    public void initDao(){
+        dao = ctx.getBean(
+            &quot;notebookDao&quot;, NotebookDao.class);
+    }
+    @Test
+    public void testFindNotebooksByUserId(){
+        String userId=&quot;ea09d9b1-ede7-4bd8-b43d-a546680df00b&quot;;
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+            dao.findNotebooksByUserId(userId);
+        for (Map&lt;String, Object&gt; map : list) {
+            System.out.println(map);
+        }
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>添加业务层</h3>
+<ol>
+<li>
+<p>添加业务层接口</p>
+<pre><code>public interface NotebookService {
+    List&lt;Map&lt;String, Object&gt;&gt; listNotebooks(
+            String userId) 
+            throws UserNotFoundException; 
+}
+</code></pre>
+
+</li>
+<li>
+<p>实现业务接口</p>
+<pre><code>@Service(&quot;notebookService&quot;)
+public class NotebookServiceImpl
+    implements NotebookService{
+
+    @Resource
+    private NotebookDao notebookDao;
+
+    @Resource 
+    private UserDao userDao;
+
+    public List&lt;Map&lt;String, Object&gt;&gt; listNotebooks(
+            String userId) 
+            throws UserNotFoundException {
+        if(userId==null || userId.trim().isEmpty()){
+            throw new UserNotFoundException(&quot;User Id 空&quot;);
+        }
+        //
+        User user=userDao.findUserById(userId);
+        if(user==null){
+            throw new UserNotFoundException(&quot;ID错误&quot;);
+        }
+        return notebookDao.findNotebooksByUserId(userId);
+        //
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>根据实际业务逻辑,设计业务算法过程.</p>
+</blockquote>
+</li>
+<li>
+<p>添加持久层接口方法 UserDao.java:</p>
+<pre><code>User findUserById(String userId);
+</code></pre>
+
+</li>
+<li>
+<p>添加SQL 语句 UserMapper.xml:</p>
+<pre><code>&lt;select id=&quot;findUserById&quot;   
+    parameterType=&quot;string&quot;
+    resultType=&quot;cn.tedu.note.entity.User&quot;&gt;
+    select 
+        cn_user_id as id,
+        cn_user_name as name,
+        cn_user_password as password,
+        cn_user_token as token,
+        cn_user_nick as nick
+    from
+        cn_user
+    where
+        cn_user_id = #{userId}
+&lt;/select&gt;   
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>public class NotebookServiceTestCase 
+    extends BaseTestCase {
+
+    NotebookService service;
+
+    @Before
+    public void initService(){
+        this.service = ctx.getBean(
+            &quot;notebookService&quot;,NotebookService.class);
+    }
+    @Test
+    public void testListNotebooks(){
+        String userId=&quot;ea09d9b1-ede7-4bd8-b43d-a546680df00b&quot;;
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+            service.listNotebooks(userId);
+        for (Map&lt;String, Object&gt; map : list) {
+            System.out.println(map); 
+        }
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>控制器</h3>
+<ol>
+<li>
+<p>添加控制器类:</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/notebook&quot;)
+public class NotebookController 
+    extends BaseController{
+
+    @Resource
+    private NotebookService notebookService;
+
+    @RequestMapping(&quot;/list.do&quot;)
+    @ResponseBody
+    public JsonResult&lt;List&lt;Map&lt;String, Object&gt;&gt;&gt;
+        list(String userId){
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+            notebookService.listNotebooks(userId);
+        return new JsonResult&lt;List&lt;Map&lt;String,Object&gt;&gt;&gt;(list);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/note/notebook/list.do?userId=ea09d9b1-ede7-4bd8-b43d-a546680df00b
+http://localhost:8080/note/notebook/list.do?userId=123
+http://localhost:8080/note/notebook/list.do
+</code></pre>
+
+</li>
+</ol>
+<blockquote>
+<p>提示: 不仅仅要测试正常情况, 也要测试异常情况</p>
+</blockquote>
+<h3>界面JS脚本</h3>
+<ol>
+<li>
+<p>更新login.js, 登录成功是保存用户ID到Cookie中.</p>
+<pre><code>function loginAction(){
+    //console.log(&quot;Login Action!&quot;);
+    var name = $('#count').val();
+    var password = $('#password').val();
+    //检查用户名和密码的规则
+    var n = checkName() + checkPassword();
+    if(n!=2){
+        return;
+    }
+    //向服务器发送用户名和密码
+    var url=&quot;user/login.do&quot;;
+    //data中的key与服务端控制器参数名一致
+    //data中的值来源于页面表单中的数据
+    var data={'name':name,'password':password};
+    $.post(url, data, function(result){
+        //服务器返回result 是JsonResult序列化的
+        //结果. result: {state:0,data:...,message:...}
+        //console.log(result);
+        if(result.state==SUCCESS){
+            //登录成功
+            //跳转到 edit.html
+            console.log('成功');
+
+            //登录成功以后将ID保存到Cookies中
+            var userId=result.data.id;
+            setCookie(&quot;userId&quot;, userId);
+
+            location.href='edit.html';
+        }else{
+            //显示错误消息
+            var msg=result.message;
+            console.log(msg);
+            $('#count-msg').html(msg);
+        }
+    });
+} 
+
+&gt; 利用浏览器测试是否有Cookie 被保存了.
+</code></pre>
+
+</li>
+<li>
+<p>更新edit.html, 添加js脚本:</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;
+    src=&quot;scripts/cookie_util.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;
+    src=&quot;scripts/edit_init.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;
+    src=&quot;scripts/notebook.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加	edit_init.js</p>
+<pre><code>/* scripts/edit_init.js */
+
+var SUCCESS = 0;
+
+$(function(){
+    //初始化 edit.html 页面
+    //var userId=getCookie('userId');
+    //console.log(userId);
+
+    //在网页加载以后立即加载笔记本列表信息
+    loadNotebooksAction();
+});
+</code></pre>
+
+</li>
+<li>
+<p>添加 notebook.js</p>
+<pre><code>/* scripts/notebook.js */
+
+/**
+ * 用于加载笔记本列表信息
+ * 
+ * 在页面加载以后立即执行
+ */
+function loadNotebooksAction(){
+    console.log('loadNotebooksAction');
+    //发起Ajax请求, 获取笔记本列表数据
+    var url='notebook/list.do';
+    var data={userId:getCookie('userId')};
+    console.log(data);
+    $.getJSON(url, data, function(result){
+        console.log(result);
+        if(result.state==SUCCESS){
+            var list=result.data;
+            console.log(list);
+            //将笔记本列表显示到页面上
+            showNotebooks(list);
+        }else{
+            var msg=result.message;
+            alert(msg);
+        }
+    });
+}
+//笔记本列表区域的显示模板
+//替换[name]为真正笔记本名
+var notebookTemplate=
+    '&lt;li class=&quot;online&quot;&gt;' +
+        '&lt;a &gt;' + // class=&quot;checked&quot;
+            '&lt;i class=&quot;fa fa-book&quot; title=&quot;online&quot; rel=&quot;tooltip-bottom&quot;&gt;&lt;/i&gt;'+
+            '[name]'+
+        '&lt;/a&gt;'+
+    '&lt;/li&gt;';
+
+function showNotebooks(notebooks){
+    //1. 清空 ul 
+    //2. 遍历 notebooks 
+    //3. 为每个notebook创建一个li
+    //     将模板[name]替换为笔记本名即得到 li 
+    //4. 将li添加到ul
+    $('#notebooks').empty();
+    for(var i=0; i&lt;notebooks.length; i++){
+        var notebook=notebooks[i];
+        var li = notebookTemplate.replace(
+                '[name]', notebook.name);
+        console.log(li);
+        $('#notebooks').append(li);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>准备测试数据</p>
+<pre><code>查询那个用户笔记本多:
+select 
+    n.cn_user_id, u.cn_user_name 
+from 
+    cn_notebook n
+left join 
+    cn_user u 
+on 
+    n.cn_user_id = u.cn_user_id;
+
+//查询已经加密的密码
+select u.cn_user_password from cn_user u where u.cn_user_name='bai';
+
+//更新测试用户的密码
+update 
+    cn_user 
+set 
+    cn_user_password='6ae7acc060ca9e9bdc53f968fd3ff3a4'
+where 
+    cn_user_name='zhoujia';
+</code></pre>
+
+</li>
+<li>
+<p>测试...</p>
+</li>
+</ol>
+<blockquote>
+<p>注意: 测试时候要情况浏览器的缓存, 否则可能修改结果不会被显示</p>
+</blockquote>
+<h2>添加笔记功能</h2>
+<p>添加笔记的原理</p>
+<p><img src="2.png" /></p>
+<h3>持久层实现</h3>
+<ol>
+<li>
+<p>添加实体类 Notebook.java</p>
+<pre><code>public class Notebook implements Serializable {
+
+    private static final long serialVersionUID = 6645889448531380183L;
+
+    private String id;
+    private String userId;
+    private String typeId;
+    private String name;
+    private String desc;
+    private Timestamp createTime;
+
+    public Notebook() {
+    }
+
+    public Notebook(String id, String userId, String typeId, String name, String desc, Timestamp createTime) {
+        super();
+        this.id = id;
+        this.userId = userId;
+        this.typeId = typeId;
+        this.name = name;
+        this.desc = desc;
+        this.createTime = createTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Notebook [id=&quot; + id + &quot;, userId=&quot; + userId + &quot;, typeId=&quot; + typeId + &quot;, name=&quot; + name + &quot;, desc=&quot; + desc
+                + &quot;, createTime=&quot; + createTime + &quot;]&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Notebook other = (Notebook) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加持久层方法 NotebookDao:</p>
+<pre><code>int saveNotebook(Notebook book);
+</code></pre>
+
+</li>
+<li>
+<p>添加SQL, NotebookMapper.xml:</p>
+<pre><code>&lt;insert id=&quot;saveNotebook&quot;
+    parameterType=&quot;cn.tedu.note.entity.Notebook&quot;&gt;
+    insert into cn_notebook(
+        cn_notebook_id, 
+        cn_user_id,
+        cn_notebook_type_id,
+        cn_notebook_name,
+        cn_notebook_desc,
+        cn_notebook_createtime
+    ) values (
+        #{id},
+        #{userId},
+        #{typeId},
+        #{name},
+        #{desc},
+        #{createTime}
+    )
+&lt;/insert&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试 NotebookDaoTestCase.java:</p>
+<pre><code>@Test
+public void testSaveNotebook(){
+    String id=UUID.randomUUID().toString();
+    String userId=&quot;ea09d9b1-ede7-4bd8-b43d-a546680df00b&quot;;
+    String typeId=&quot;0&quot;;
+    String name = &quot;Java&quot;;
+    String desc=&quot;Java基础&quot;;
+    Timestamp createTime= 
+        new Timestamp(System.currentTimeMillis()); 
+    Notebook notebook=new Notebook(id, userId, typeId, name, desc, createTime); 
+    dao.saveNotebook(notebook);
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>业务层</h3>
+<ol>
+<li>
+<p>添加业务层方法 NotebookService.java:</p>
+<pre><code>Notebook saveNotebook(String name, String userId)
+    throws UserNotFoundException;   
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层方法 NotebookServiceImpl.java:</p>
+<pre><code>public Notebook saveNotebook(
+        String name, String userId) 
+        throws UserNotFoundException {
+    if(name==null||name.trim().isEmpty()){
+        throw new NameException(&quot;笔记本名不能空！&quot;);
+    }
+    if(userId==null||userId.trim().isEmpty()){
+        throw new UserNotFoundException(&quot;userId不能空！&quot;);
+    }
+    User user=userDao.findUserById(userId);
+    if(user==null){
+        throw new UserNotFoundException(&quot;ID错误&quot;);
+    }
+    String id=UUID.randomUUID().toString();
+    String typeId=&quot;1&quot;;
+    String desc=&quot;&quot;;
+    Timestamp createTime=new Timestamp(System.currentTimeMillis());
+    Notebook book = new Notebook(id, userId, typeId, name, desc, createTime);
+
+    int n = notebookDao.saveNotebook(book);
+    if(n==1){
+        return book;
+    }
+    throw new RuntimeException(&quot;保存失败&quot;);
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试 NotebookServiceTestCase.java:</p>
+<pre><code>@Test
+public void testSaveNotebook(){
+    String name=&quot;测试笔记本&quot;;
+    String userId=&quot;ea09d9b1-ede7-4bd8-b43d-a546680df00b&quot;;
+    Notebook book = service.saveNotebook(name, userId);
+    System.out.println(book);
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>控制器</h3>
+<ol>
+<li>
+<p>添加控制器方法 NotebookController.java:</p>
+<pre><code>@RequestMapping(&quot;/save.do&quot;)
+@ResponseBody
+public JsonResult&lt;Notebook&gt; save(
+        String name, String userId){
+    Notebook book=notebookService.saveNotebook(name, userId);
+    return new JsonResult&lt;Notebook&gt;(book);
+}
+</code></pre>
+
+</li>
+<li>
+<p>部署测试:</p>
+<pre><code>http://localhost:8080/note/notebook/save.do?name=Test&amp;userId=39295a3d-cc9b-42b4-b206-a2e7fab7e77c
+</code></pre>
+
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>实现笔记本列表功能</li>
+<li>实现笔记本添加服务端</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

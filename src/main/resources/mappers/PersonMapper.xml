@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.note.dao.PersonDao">
+	<!-- useGeneratedKeys 用于支持自增类型，
+	可以在插入数据以后读取自动增加的ID 
+	keyProperty="id" 用于指定那个Bean属性是
+	自增类型，Person 类包含属性 ID，属性的值
+	会自动的填充为数据库生成的新ID-->
+	<insert id="addPerson"
+		useGeneratedKeys="true"
+		parameterType="cn.tedu.note.entity.Person"
+		keyProperty="id">
+		insert into person(
+			person_id,
+			person_name,
+			person_age
+		) values (
+			null,
+			#{name},
+			#{age}
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+

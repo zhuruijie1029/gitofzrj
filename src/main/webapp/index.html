@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>显示自定义照片</h1>
+	<img alt="" src="user/img.do">
+	<a href="user/img.do">显示照片</a>
+	<a href="user/img2.do">下载照片</a>
+	<a href="user/download.do">下载Excel</a>
+	<h1>上载文件</h1>
+	<form action="user/upload.do" 
+		method="post" 
+		enctype="multipart/form-data">
+		
+		照片：<input type="file" name="photo"><br>
+		姓名：<input type="text" name="name"><br>
+		<input type="submit" value="提交">  
+	
+	</form>	
+</body>
+</html>
+
+
+
+

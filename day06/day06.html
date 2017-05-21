@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day06</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>保存笔记</h2>
+<p>利用动态SQL拼接实现保存笔记功能:</p>
+<p><img src="1.png" /></p>
+<h3>持久层</h3>
+<ol>
+<li>
+<p>创建持久层接口方法, NoteDao.sql:</p>
+<pre><code>int updateNote(Map&lt;String, Object&gt; params);
+</code></pre>
+
+</li>
+<li>
+<p>声明持久层SQL, NoteMapper.xml:</p>
+<pre><code>&lt;update id=&quot;updateNote&quot;
+    parameterType=&quot;map&quot;&gt;
+    update 
+        cn_note
+    set
+        &lt;trim suffixOverrides=&quot;,&quot;&gt;
+            &lt;if test=&quot;userId!=null&quot;&gt;
+                cn_user_id=#{userId},
+            &lt;/if&gt;
+            &lt;if test=&quot;notebookId!=null&quot;&gt;
+                cn_notebook_id=#{notebookId},
+            &lt;/if&gt;
+            &lt;if test=&quot;statusId!=null&quot;&gt;
+                cn_note_status_id=#{statusId},
+            &lt;/if&gt;
+            &lt;if test=&quot;typeId!=null&quot;&gt;
+                cn_note_type_id=#{typeId},
+            &lt;/if&gt;
+            &lt;if test=&quot;body!=null&quot;&gt;
+                cn_note_body=#{body},
+            &lt;/if&gt;       
+            &lt;if test=&quot;title!=null&quot;&gt;
+                cn_note_title=#{title},
+            &lt;/if&gt;
+            &lt;if test=&quot;lastModifyTime!=null&quot;&gt;
+                cn_note_last_modify_time=#{lastModifyTime}
+            &lt;/if&gt;
+        &lt;/trim&gt;
+    where
+        cn_note_id=#{id}
+&lt;/update&gt;
+</code></pre>
+
+<blockquote>
+<p>这里的 <code>&lt;if&gt;</code> <code>&lt;trim&gt;</code> 都是MyBatis提供的动态SQL拼接标签</p>
+</blockquote>
+</li>
+<li>
+<p>测试NoteDaoTestCase</p>
+<pre><code>@Test
+public void testUpdateNote(){
+    String noteId=&quot;fed920a0-573c-46c8-ae4e-368397846efd&quot;;
+    String title = &quot;Java&quot;;
+    String body = &quot;今天学习了JavaEE&quot;;
+    long now = System.currentTimeMillis();
+
+    Map&lt;String, Object&gt; map =
+        new HashMap&lt;String, Object&gt;();
+    map.put(&quot;id&quot;, noteId);
+    map.put(&quot;title&quot;, title);
+    map.put(&quot;body&quot;, body);
+    //map.put(&quot;lastModifyTime&quot;, now);
+
+    int n = dao.updateNote(map);
+    System.out.println(n); 
+    //检查更新结果
+    Note note=dao.findNoteById(noteId);
+    System.out.println(note);
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>业务层</h3>
+<ol>
+<li>
+<p>添加业务层方法, NoteService.java:</p>
+<pre><code>boolean updateNote(String noteId, 
+        String title, String body)
+    throws NoteNotFoundException;
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层方法, NoteServiceImpl.java:</p>
+<pre><code>public boolean updateNote(String noteId, 
+        String title, String body) 
+        throws NoteNotFoundException {
+    if(noteId==null||noteId.trim().isEmpty()){
+        throw new NoteNotFoundException(&quot;ID不能空&quot;);
+    }
+    Note note = noteDao.findNoteById(noteId);
+    if(note==null){
+        throw new NoteNotFoundException(&quot;ID错&quot;);
+    }
+    //创建Map, 封装更新参数
+    //如 title 是 null 则不更新title
+    Map&lt;String, Object&gt; params = 
+        new HashMap&lt;String, Object&gt;();
+    if(title!=null &amp;&amp;
+            ! title.trim().isEmpty()){
+        params.put(&quot;title&quot;, title.trim());  
+    }
+    //笔记本内容为null, 不更新笔记内容
+    if(body!=null){
+        if(!body.equals(note.getBody())){
+            params.put(&quot;body&quot;, body.trim());
+        }
+    }
+    //如果title 和 body 都没有,则无需更新?
+    if(params.isEmpty()){
+        return false;//更新失败
+    }
+    //添加必须参数
+    params.put(&quot;id&quot;, noteId);
+    params.put(&quot;lastModifyTime&quot;, 
+        System.currentTimeMillis());
+    //更新数据
+    int n =noteDao.updateNote(params);
+    return n==1;
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试 NoteServiceTestCase</p>
+<pre><code>@Test
+public void testUpdateNote(){
+    String noteId=&quot;fed920a0-573c-46c8-ae4e-368397846efd&quot;;
+    String title = &quot;Java&quot;;
+    String body = &quot;今天学习了JavaEE&quot;;
+    long now = System.currentTimeMillis();
+
+    Map&lt;String, Object&gt; map =
+        new HashMap&lt;String, Object&gt;();
+    map.put(&quot;id&quot;, noteId);
+    map.put(&quot;title&quot;, title);
+    map.put(&quot;body&quot;, body);
+    //map.put(&quot;lastModifyTime&quot;, now);
+
+    int n = dao.updateNote(map);
+    System.out.println(n); 
+    //检查更新结果
+    Note note=dao.findNoteById(noteId);
+    System.out.println(note);
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>控制器</h3>
+<ol>
+<li>
+<p>实现控制器方法 NoteController</p>
+<pre><code>@RequestMapping(&quot;/update.do&quot;)
+@ResponseBody
+public JsonResult&lt;Boolean&gt; update(
+        String noteId,
+        String title, 
+        String body){
+    boolean b =noteService.updateNote(
+            noteId, title, body);
+    return new JsonResult&lt;Boolean&gt;(b);
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试控制器</p>
+<pre><code>http://localhost:8080/note/note/update.do?noteId=fed920a0-573c-46c8-ae4e-368397846efd&amp;title=Java123&amp;body=JavaABCD
+</code></pre>
+
+<blockquote>
+<p>在数据库中确认更新结果...</p>
+</blockquote>
+</li>
+</ol>
+<h3>表现层</h3>
+<ol>
+<li>
+<p>重构 loadNoteAction方法 将笔记对象绑定到标题区域: </p>
+<pre><code>function loadNoteAction(){
+
+    var li = $(this);
+    var id = li.data('noteId');
+
+    //设置选定笔记列表元素效果
+    li.parent().find('a').removeClass('checked');
+    li.find('a').addClass('checked');
+
+    var url = 'note/load.do';
+    var data = {noteId:id};
+
+    $.getJSON(url, data, function(result){
+        if(result.state==SUCCESS){
+            var note=result.data;
+            //绑定 note 到标题区域
+            $('#input_note_title')
+                .data('note', note);
+
+            $('#input_note_title').val(note.title);
+            um.setContent(note.body);
+        }else{
+            alert(result.message);
+        }
+    });
+}
+</code></pre>
+
+</li>
+<li>
+<p>绑定保存笔记事件 edit_init.js:</p>
+<pre><code>//绑定保存笔记事件
+$('#save_note').click(updateNoteAction);
+</code></pre>
+
+</li>
+<li>
+<p>添加更新笔记方法 edit.js:</p>
+<pre><code>//note.js
+function updateNoteAction(){
+    //获取用户输入title
+    //获取用户输入body
+    var note = $('#input_note_title')
+        .data('note');
+    //提交到服务器
+    var title = $('#input_note_title').val();
+    var body = um.getContent();
+    var data = {};
+    if(title!=&quot;&quot; &amp;&amp; title != note.title){
+        data.title=title;
+    }
+    if(body != note.body){
+        data.body = body;
+    }
+    data.noteId=note.id;
+    var url='note/update.do';
+    $.post(url, data, function(result){
+        if(result.state==SUCCESS){
+            console.log(&quot;Update Success!&quot;);
+            //修改客户端保存的笔记信息属性
+            note.title = title;
+            note.body = body;
+            //找到笔记本列表中的全部笔记信息,修改其title
+            //list: 包含笔记标题的全部li元素
+            var list = $('#pc_part_2 ul li');
+            //遍历每个li元素
+            list.each(function(){
+                //li 是 dom 对象, 是每个li元素
+                var li = $(this);
+                console.log(li);
+                //取出li元素上绑定的 noteId
+                var id=li.data('noteId');
+                //如果当前的笔记ID与li上的笔记ID一致
+                //找到当正在选定的 笔记
+                if(id==note.id){
+                    //替换笔记的标题
+                    var newLi = noteTemplate
+                        .replace('[title]', note.title);
+                    newLi = $(newLi);
+                    //html() 用于读取或者替换li元素的内容
+                    li.html(newLi.html());
+                    //增加新选定效果
+                    li.find('a').addClass('checked');
+                }
+            });
+
+        }else{
+            alert(result.message);
+        }
+    });
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试...</p>
+</li>
+</ol>
+<h2>添加笔记功能</h2>
+<h3>持久层</h3>
+<ol>
+<li>
+<p>添加持久层方法 NoteDao.java:</p>
+<pre><code>int addNote(Note note);
+</code></pre>
+
+</li>
+<li>
+<p>添加SQL NoteMapper.xml:</p>
+<pre><code>&lt;insert id=&quot;addNote&quot;
+    parameterType=&quot;cn.tedu.note.entity.Note&quot;&gt;
+    insert into cn_note(
+        cn_note_id,
+        cn_user_id,
+        cn_notebook_id,
+        cn_note_status_id,
+        cn_note_type_id,
+        cn_note_title,
+        cn_note_body,
+        cn_note_create_time,
+        cn_note_last_modify_time
+    ) values (
+        #{id},
+        #{userId},
+        #{notebookId},
+        #{statusId},
+        #{typeId},
+        #{title},
+        #{body},
+        #{createTime},
+        #{lastModifyTime}
+    )
+&lt;/insert&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试 NoteDaoTestCase:</p>
+<pre><code>@Test
+public void testAddNote(){
+    String id=UUID.randomUUID().toString();
+    String userId = &quot;39295a3d-cc9b-42b4-b206-a2e7fab7e77c&quot;;
+    String notebookId=&quot;6d763ac9-dca3-42d7-a2a7-a08053095c08&quot;;
+    String title = &quot;Java Note&quot;;
+    String body = &quot;Hello World!&quot;;
+    long now = System.currentTimeMillis();
+
+    Note note = new Note(id, notebookId, userId, 
+            &quot;0&quot;, &quot;0&quot;, title, body, now, now);
+    int n = dao.addNote(note);
+    System.out.println(n); 
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>业务层</h3>
+<ol>
+<li>
+<p>添加业务层方法 NoteService.java:</p>
+<pre><code>Note addNote(String userId, 
+    String notebookId, String title);
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层方法NoteServiceImpl.java</p>
+<pre><code>public Note addNote(String userId,
+    String notebookId, String title) {
+    if(notebookId==null||notebookId.trim().isEmpty()){
+        throw new NotebookNotFoundException(&quot;notebookId不能空&quot;);
+    }
+    Notebook book = notebookDao.findNotebookById(notebookId);
+    if(book == null){
+        throw new NotebookNotFoundException(&quot;notebookId不存在&quot;);
+    }
+    if(userId==null||userId.trim().isEmpty()){
+        throw new UserNotFoundException(&quot;userId不能空&quot;);
+    }
+    User user = userDao.findUserById(userId);
+    if(user == null){
+        throw new UserNotFoundException(&quot;userId不存在&quot;);
+    }
+    if(title==null || title.trim().isEmpty()){
+        throw new RuntimeException(&quot;title不存在&quot;);
+    }
+    String id = UUID.randomUUID().toString();
+    title = title.trim();
+    String body = &quot;&quot;;
+    String typeId=&quot;0&quot;;
+    String statusId=&quot;0&quot;;
+    long now = System.currentTimeMillis();
+    Note note = new Note(id, notebookId, userId, statusId, typeId, title, body, now, now);
+    int n = noteDao.addNote(note);
+    if( n == 1){
+
+        return note;
+    }
+    throw new RuntimeException(&quot;保存失败!&quot;);
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试 NoteServiceTestCase:</p>
+<pre><code>@Test
+public void testAddNote(){
+    String userId = &quot;39295a3d-cc9b-42b4-b206-a2e7fab7e77c&quot;;
+    String notebookId=&quot;6d763ac9-dca3-42d7-a2a7-a08053095c08&quot;;
+    String title = &quot;Java Hello&quot;;
+
+    Note note = service.addNote(userId, notebookId, title);
+    System.out.println(note);
+}
+</code></pre>
+
+</li>
+</ol>
+<h3>控制器</h3>
+<ol>
+<li>
+<p>控制器方法 NoteController</p>
+<pre><code>@RequestMapping(&quot;/add.do&quot;)
+@ResponseBody
+public JsonResult&lt;Note&gt; add(
+        String userId,
+        String notebookId, 
+        String title){
+    Note note =noteService.addNote(
+            userId, notebookId, title);
+    return new JsonResult&lt;Note&gt;(note);
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/note/note/add.do?userId=39295a3d-cc9b-42b4-b206-a2e7fab7e77c&amp;notebookId=6d763ac9-dca3-42d7-a2a7-a08053095c08&amp;title=JavaEE
+</code></pre>
+
+</li>
+</ol>
+<h3>表现层</h3>
+<ol>
+<li>
+<p>重构showNotesAction, 在笔记的UL上绑定 notebookId:</p>
+<pre><code>function showNotesAction(){
+    var li = $(this);
+
+    //设置视觉效果
+    li.parent().find('a').removeClass('checked');
+    li.children('a').addClass('checked');
+
+    var id=li.data('notebookId');
+
+    //在笔记的UL上绑定 notebookId
+    var ul = $('#pc_part_2 ul');
+    ul.data('notebookId', id);
+
+    var url='note/list.do';
+    var data={notebookId:id};
+    $.getJSON(url, data, function(result){
+        console.log(result);
+        if(result.state==SUCCESS){
+            var list = result.data;
+            //显示全部的笔记
+            showNotes(list);
+        }else{
+            alert(result.message);
+        }
+    });
+}
+</code></pre>
+
+</li>
+<li>
+<p>绑定事件 edit_init.js:</p>
+<pre><code>//绑定添加笔记按钮事件
+$('#add_note').click(openAddNoteDialog);
+//绑定添加笔记窗口中的 确定按钮事件
+$('#can').on('click', '.add-note', addNoteAction);
+</code></pre>
+
+</li>
+<li>
+<p>添加打开窗口的方法 note.js:</p>
+<pre><code>function openAddNoteDialog(){
+    //获取当前笔记本的ID, 如果没有, 则不能打开对话框
+    var ul = $('#pc_part_2 ul');
+    var id = ul.data('notebookId');
+    if(! id){
+        alert(&quot;先选定笔记本!&quot;);
+        return;
+    }
+
+    var url=&quot;alert/alert_note.jsp&quot;;
+    $('#can').load(url);
+    $('.opacity_bg').show();
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加保存笔记事件方法 note.js:</p>
+<pre><code>function addNoteAction(){
+    var title = $('#input_note').val();
+    if(title=='' || title.replace(/\s/g,'')==''){
+        return;
+    }
+    //获取当前笔记本的ID, 如果没有, 则不能向服务器发送数据
+    var ul = $('#pc_part_2 ul');
+    var id = ul.data('notebookId');
+    if(! id){
+        return;
+    }
+
+    var url='note/add.do';
+    var data = {userId:getCookie('userId'),
+            notebookId:id, title:title};
+    $.post(url, data, function(result){
+        console.log(result);
+        if(result.state==SUCCESS){
+            var note = result.data;
+            //绑定note对象
+            //绑定 note 到标题区域
+            $('#input_note_title')
+                .data('note', note);
+
+            $('#input_note_title').val(note.title);
+            um.setContent(note.body);
+            //更新笔记列表区域
+            var ul = $('#pc_part_2 ul');
+            li = noteTemplate.replace(
+                    '[title]', note.title);
+            li = $(li);
+            ul.prepend(li);
+            //更新选定效果
+            ul.find('a').removeClass('checked');
+            li.find('a').addClass('checked');
+            //关闭对话框
+            closeDialog();
+        }else{
+            alert(result.message);
+        }
+    });
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试, Good Luck!</p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>完成保存笔记功能</li>
+<li>完成添加笔记功能</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

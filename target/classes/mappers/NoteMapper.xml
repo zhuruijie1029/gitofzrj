@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.note.dao.NoteDao">
+	<!-- map:{notebookId:id, 
+				start:num, size:size} -->
+	<select id="findNotesByNotebookIdPaged"
+		parameterType="map" 
+		resultType="map">
+		select 
+			cn_note_id as id,
+			cn_note_title as title
+		from
+			cn_note
+		where
+			cn_notebook_id=#{notebookId}
+		order by 
+			cn_note_last_modify_time desc
+		limit #{start}, #{size}
+	</select>
+
+
+	<select id="findNotesByNotebookId"
+		parameterType="string" 
+		resultType="map">
+		select 
+			cn_note_id as id,
+			cn_note_title as title
+		from
+			cn_note
+		where
+			cn_notebook_id=#{notebookId}
+		order by 
+			cn_note_last_modify_time desc
+	</select>
+	
+	<select id="findNoteById"
+		parameterType="string"
+		resultType="cn.tedu.note.entity.Note">
+		select 
+			cn_note_id as id,
+			cn_notebook_id as notebookId,
+			cn_user_id as userId,
+			cn_note_status_id as statusId,
+			cn_note_type_id as typeId,
+			cn_note_title as title,
+			cn_note_body as body,
+			cn_note_create_time as createTime,
+			cn_note_last_modify_time as lastModifyTime
+		from 
+			cn_note
+		where 
+			cn_note_id = #{noteId} 
+	</select>
+	
+	<!-- map={body:body, } -->
+	<!-- NoteMapper.xml -->
+	<update id="updateNote"
+		parameterType="map">
+		update 
+			cn_note
+		<set>
+			<trim suffixOverrides=",">
+				<if test="userId!=null">
+					cn_user_id=#{userId},
+				</if>
+				<if test="notebookId!=null">
+					cn_notebook_id=#{notebookId},
+				</if>
+				<if test="statusId!=null">
+					cn_note_status_id=#{statusId},
+				</if>
+				<if test="typeId!=null">
+					cn_note_type_id=#{typeId},
+				</if>
+				<if test="body!=null">
+					cn_note_body=#{body},
+				</if>		
+				<if test="title!=null">
+					cn_note_title=#{title},
+				</if>
+				<if test="lastModifyTime!=null">
+					cn_note_last_modify_time=#{lastModifyTime}
+				</if>
+			</trim>
+		</set>
+		<where>
+			cn_note_id=#{id}
+		</where>
+	</update>
+	
+	<insert id="addNote"
+		parameterType="cn.tedu.note.entity.Note">
+		insert into	cn_note(
+			cn_note_id,
+			cn_user_id,
+			cn_notebook_id,
+			cn_note_status_id,
+			cn_note_type_id,
+			cn_note_title,
+			cn_note_body,
+			cn_note_create_time,
+			cn_note_last_modify_time
+		) values (
+			#{id},
+			#{userId},
+			#{notebookId},
+			#{statusId},
+			#{typeId},
+			#{title},
+			#{body},
+			#{createTime},
+			#{lastModifyTime}
+		)
+	</insert>
+	
+	<delete id="deleteNote"
+		parameterType="string">
+		delete from
+			cn_note
+		where 
+			cn_note_id=#{id}
+	</delete>
+	
+	<!-- deleteNotes(List<String> list) -->
+	<delete id="deleteNotes">
+		delete from
+			cn_note
+		where 
+			cn_note_id 
+		in  
+		<foreach collection="list"
+			open="(" separator="," close=")"
+			item="id">
+			#{id}
+		</foreach> 
+	</delete>
+	
+	<!-- NoteMapper.xml -->
+	<!-- 多参数删除, 
+		map={statusId=?, idList=list} -->
+	<delete id="deleteNotesByParams"
+		parameterType="map"> 
+		delete from
+			cn_note
+		where 
+			<if test="statusId!=null">
+				cn_note_status_id=#{statusId} and 
+			</if>
+			cn_note_id in
+			<foreach collection="idList"
+				open="(" separator="," close=")"
+				item="id">
+				#{id}
+			</foreach>
+	</delete>
+	
+	<select id="findNoteByParams"
+		parameterType="map"
+		resultType="map"> 
+		select  
+			u.cn_user_name as name, 
+			n.cn_note_title as title,
+			n.cn_note_id  as noteId
+		from 
+		   cn_note n
+		left join 
+		   cn_user u
+		on 
+		   n.cn_user_id = u.cn_user_id  
+		<where>
+			<trim suffixOverrides="and">
+				<if test="name!=null">
+					u.cn_user_name=#{name} and
+				</if>
+				<if test="key!=null">  
+				   (n.cn_note_body like '%${key}%' or
+				   n.cn_note_title like '%${key}%' ) and 
+			   </if>
+			   <if test="statusId != null">
+			   	n.cn_note_status_id = #{statusId}
+			   </if>
+		   </trim>
+   	</where>
+	</select>
+	
+	<select id="countNotes" 
+		parameterType="string"
+		resultType="int">
+		select 
+			count(*)
+		from 
+			cn_note
+		where 
+			cn_notebook_id=#{notebookId}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+

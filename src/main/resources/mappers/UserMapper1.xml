@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.note.dao.UserDao">
+    <select id="cn.tedu.note.dao.UserDao"
+             parameterType="string"
+            resultType="cn.tedu.note.entity.User"
+    >
+        select
+              cn_user_id as id,
+              cn_user_name as name,
+              cn_user_password as password,
+              cn_user_token as token,
+              cn_user_nock as nick
+        from
+            user
+        where
+          cn_user_name=#{username}
+    </select>
+
+</mapper>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day01</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>业务需求描述</h2>
+<p><img src="1.png" /></p>
+<h2>业务分析</h2>
+<p>找出软件中的业务实体(找对象)</p>
+<p>用户
+笔记本
+笔记</p>
+<h2>数据库设计</h2>
+<p>利用实体关系(ER)设计工具: ER-WIN  PowerDesigner  ER-Studio ...</p>
+<p><img src="2.png" /></p>
+<p><img src="3.png" /></p>
+<p><img src="note_db.png" /></p>
+<h2>功能设计思路</h2>
+<p>程序 = 数据结构+算法</p>
+<ol>
+<li>搞清楚数据的结构, 数据是如何存储的.</li>
+<li>根据数据结构和软件功能设计计算过程步骤.</li>
+<li>
+分解计算过程到软件的每个层次
+<ul>
+<li>界面层</li>
+<li>业务层</li>
+<li>数据持久层</li>
+</ul>
+</li>
+</ol>
+<p>如: 设计登录功能:</p>
+<p><img src="3.png" /></p>
+<h2>环境搭建</h2>
+<h3>创建项目配置Spring MVC:</h3>
+<ol>
+<li>
+<p>创建Maven项目导入 相关的包 pom.xml:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+  &lt;version&gt;3.2.8.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+    &lt;dependency&gt;
+  &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+  &lt;version&gt;2.5.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+  &lt;version&gt;2.5.0&lt;/version&gt;
+&lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.2.8&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;mysql&lt;/groupId&gt;
+  &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+  &lt;version&gt;5.1.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
+  &lt;version&gt;1.4&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+  &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+  &lt;version&gt;1.2.4&lt;/version&gt;
+&lt;/dependency&gt;   
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+  &lt;version&gt;3.2.8.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置Spring MVC, web.xml</p>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;classpath:conf/spring-*.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Spring配置文件 conf/spring-web.xml:</p>
+<pre><code>&lt;!-- 配置组件扫描 --&gt;
+&lt;context:component-scan     base-package=&quot;cn.tedu.note.web&quot;/&gt;
+&lt;!-- annotation-driven:注解驱动的MVC @RequestMapping --&gt;
+&lt;mvc:annotation-driven/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>部署测试 ...</p>
+</li>
+</ol>
+<h3>配置MyBatis</h3>
+<ol>
+<li>
+<p>添加数据库连接参数文件: conf/db.properties:</p>
+<pre><code># conf/db.properties
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/cloud_note
+username=root
+password=root 
+</code></pre>
+
+</li>
+<li>
+<p>添加配置文件conf/spring-mybatis.xml</p>
+<pre><code>&lt;!-- 导入数据库参数 db.properties --&gt;
+&lt;util:properties id=&quot;db&quot; location=&quot;classpath:conf/db.properties&quot;/&gt; 
+&lt;!-- 配置数据库连接池dbcp --&gt;
+&lt;bean id=&quot;dataSource&quot;
+    class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;#{db.driver}&quot;/&gt;
+    &lt;property name=&quot;url&quot; value=&quot;#{db.url}&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;#{db.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;#{db.password}&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写测试案例测试数据库连接:</p>
+<pre><code>public class BaseTestCase {
+    protected ClassPathXmlApplicationContext ctx;
+    //初始化 Spring容器
+    @Before 
+    public void init(){
+        ctx=new ClassPathXmlApplicationContext(
+                &quot;conf/spring-web.xml&quot;,
+                &quot;conf/spring-mybatis.xml&quot;);
+    }
+}
+
+/**
+ * 测试数据库连接 
+ */
+public class JdbcTestCase 
+    extends BaseTestCase{
+
+    @Test
+    public void testDataSource() 
+            throws Exception {
+        DataSource ds = ctx.getBean(
+            &quot;dataSource&quot;, DataSource.class);
+        Connection conn = ds.getConnection();
+        DatabaseMetaData md=conn.getMetaData();
+        System.out.println(md);
+        //查询数据库版本
+        String n = md.getDatabaseProductName();
+        String v = md.getDatabaseProductVersion();
+        System.out.println(n+v); 
+        conn.close();
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试...</p>
+</li>
+<li>
+<p>配置MyBatis, conf/spring-mybatis.xml:</p>
+<!-- 配置MyBatis SqlSessionFactory -->
+<p><bean id="sqlSessionFactory"
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource"
+		ref="dataSource"/></p>
+<pre><code>&lt;property name=&quot;mapperLocations&quot;
+    value=&quot;classpath:mappers/*.xml&quot;/&gt;
+</code></pre>
+
+<p></bean></p>
+<!-- Mapper 接口扫描器 -->
+<p><bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- 
+	<property name="sqlSessionFactory"
+		ref="sqlSessionFactory"></property>
+	-->
+	<property name="basePackage"
+		value="cn.tedu.note.dao"></property>
+</bean></p>
+</li>
+</ol>
+<h2>登录功能</h2>
+<h3>添加数据持久层</h3>
+<ol>
+<li>
+<p>添加数据持久层UserDao.java</p>
+<pre><code>/**
+ * 用户信息访问层 
+ */
+public interface UserDao {
+    /**
+     * 根据用户名查找用户信息
+     * @param name 用户名
+     * @return 如果找到返回用户信息,否正确返回null 
+     */
+    User findUserByName(String name);
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>利用MyBatis实现持久层 mappers/UserMapper.xml</p>
+<pre><code>&lt;mapper namespace=&quot;cn.tedu.note.dao.UserDao&quot;&gt;
+    &lt;select id=&quot;findUserByName&quot;
+        parameterType=&quot;string&quot; 
+        resultType=&quot;cn.tedu.note.entity.User&quot;&gt;
+        select 
+            cn_user_id as id,
+            cn_user_name as name,
+            cn_user_password as password,
+            cn_user_token as token,
+            cn_user_nick as nick
+        from
+            cn_user
+        where
+            cn_user_name = #{name}
+    &lt;/select&gt;
+&lt;/mapper&gt;   
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<p>public class UserDaoTestCase 
+	extends BaseTestCase{</p>
+<pre><code>@Test 
+public void testFindUserByName(){
+    String name=&quot;zhoujia&quot;;
+    UserDao dao = ctx.getBean(
+            &quot;userDao&quot;, UserDao.class);
+    User user=dao.findUserByName(name);
+    System.out.println(user);
+}
+</code></pre>
+
+<p>}</p>
+</li>
+</ol>
+<blockquote>
+<p>提示: 更新数据用于测试:</p>
+</blockquote>
+<pre><code>    update cn_user set cn_user_password='123' where cn_user_name='zhoujia';
+</code></pre>
+
+<h3>添加业务层</h3>
+<ol>
+<li>
+<p>添加业务层接口 UserService.java</p>
+<pre><code>public interface UserService {
+    /**
+     * 登录功能 
+     * @param name 用户输入的用户名
+     * @param password 用户输入的密码
+     * @return 如果登录成功返回用户信息
+     * @throws NameException 用户名错误
+     * @throws PasswordException 密码错误
+     */
+    User login(String name, String password)
+        throws NameException, PasswordException;
+}   
+</code></pre>
+
+</li>
+<li>
+<p>实现业务层接口 UserServiceImpl.java:</p>
+<pre><code>@Service(&quot;userService&quot;)
+public class UserServiceImpl 
+    implements UserService{
+
+    @Resource
+    private UserDao userDao;
+
+    public User login(String name, 
+            String password) 
+            throws NameException, 
+            PasswordException {
+        //根据用户输入的用户名和密码检查是否登录
+        if(name==null || name.trim().isEmpty()){
+            throw new NameException(&quot;用户名不能空&quot;);
+        }
+        if(password==null || password.trim().isEmpty()){
+            throw new PasswordException(&quot;密码不能空&quot;);
+        }
+        //获取用户信息, 比较密码
+        User user=userDao.findUserByName(name);
+        if(user==null){
+            throw new NameException(&quot;用户不存在&quot;);
+        }
+        if(password.equals(user.getPassword())){
+            return user;//登录成功
+        }
+        throw new PasswordException(&quot;密码错!&quot;);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加业务层配置文件 conf/spring-service.xml:</p>
+<pre><code>&lt;!-- conf/spring-service.xml --&gt;
+&lt;context:component-scan base-package=&quot;cn.tedu.note.service&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>重构 BaseTestCase.java:</p>
+<pre><code>public class BaseTestCase {
+    protected ClassPathXmlApplicationContext ctx;
+    //初始化 Spring容器
+    @Before 
+    public void init(){
+        ctx=new ClassPathXmlApplicationContext(
+                &quot;conf/spring-web.xml&quot;,
+                &quot;conf/spring-mybatis.xml&quot;,
+                &quot;conf/spring-service.xml&quot;);
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<p>public class UserSeviceTestCase	extends BaseTestCase{</p>
+<pre><code>@Test
+public void testLogin(){
+    String name=&quot;zhoujia&quot;;
+    String password=&quot;123&quot;;
+    UserService service=ctx.getBean(
+        &quot;userService&quot;, UserService.class);
+    User user=service.login(name, password);
+    System.out.println(user);
+}
+</code></pre>
+
+<p>}</p>
+</li>
+</ol>
+<h3>添加Web控制器</h3>
+<ol>
+<li>
+<p>添加JsonResult类用于封装Json返回值</p>
+<pre><code>public class JsonResult&lt;T&gt; implements Serializable{
+    private static final long serialVersionUID = -3644950655568598241L;
+
+    private int state;
+    private String message;
+    private T data;
+
+    public static final int SUCCESS = 0;
+    public static final int ERROR = 1;
+
+    public JsonResult() {
+        state = SUCCESS;
+        message = &quot;&quot;;
+    }
+
+    public JsonResult(T data){
+        state = SUCCESS;
+        this.data = data;
+    }
+
+    public JsonResult(Throwable e){
+        state = ERROR;
+        message = e.getMessage();
+    }
+
+    public JsonResult(int state, Throwable e){
+        this.state = state;
+        this.message = e.getMessage();
+    }
+
+    public JsonResult(int state, T data){
+        this.state = state;
+        this.data = data;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;JsonResult [state=&quot; + state + &quot;, message=&quot; + message + &quot;, data=&quot; + data + &quot;]&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>添加控制器类 UserController.java:</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+
+    @Resource
+    private UserService userService;
+
+    @RequestMapping(&quot;/login.do&quot;)
+    @ResponseBody
+    //返回值: {state:0,data:{id...}}
+    //返回值: {state:1,message:&quot;用户名...&quot;}
+    public JsonResult&lt;User&gt; login(String name, 
+            String password){
+        try{
+            User user=
+                userService.login(name, password);
+            return new JsonResult&lt;User&gt;(user); 
+        }catch(NameException e){
+            e.printStackTrace();
+            return new JsonResult&lt;User&gt;(e);
+        }catch (PasswordException e) {
+            e.printStackTrace();
+            return new JsonResult&lt;User&gt;(e);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new JsonResult&lt;User&gt;(e);
+        }
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>用浏览器测试..</p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>搭建开发环境</li>
+<li>实现登录功能的后台代码</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
