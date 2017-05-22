@@ -22,7 +22,7 @@
 	<!-- 导入数据库参数 db.properties -->
 	<util:properties id="db" 
 		location="classpath:conf/db.properties"/> 
-		<!-- 创建数据库连接池 -->
+	<!-- 配置数据库连接池dbcp -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
@@ -34,8 +34,6 @@
 		<property name="password"
 			value="#{db.password}"/>
 	</bean>
-	 
-	
 	
 	<!-- 配置MyBatis SqlSessionFactory -->
 	<bean id="sqlSessionFactory"

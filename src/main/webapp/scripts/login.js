@@ -1,8 +1,6 @@
 
 var SUCCESS = 0;
-$(function(){
 
-});
 $(function(){
 	
 	//console.log("Hello!!");
@@ -45,8 +43,7 @@ function checkPassword(){
 		return false;
 	}
 	return true;
-
-
+}
 
 function loginAction(){
 	//console.log("Login Action!");
@@ -62,7 +59,6 @@ function loginAction(){
 	//data中的key与服务端控制器参数名一致
 	//data中的值来源于页面表单中的数据
 	var data={'name':name,'password':password};
-	//var data={name:name,password:password};
 	$.post(url, data, function(result){
 		//服务器返回result 是JsonResult序列化的
 		//结果. result: {state:0,data:...,message:...}

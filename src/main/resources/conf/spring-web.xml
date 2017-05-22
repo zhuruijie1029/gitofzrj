@@ -35,14 +35,7 @@
 			<ref bean="accessInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>	
-	
-	<!-- 配置文件上载解析器组件 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	    <!-- one of the properties available; the maximum file size in bytes -->
-	    <property name="maxUploadSize" value="5000000"/>
-	</bean>
-	 
+ 
 </beans>
 
 

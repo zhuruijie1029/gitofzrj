@@ -11,11 +11,9 @@ public interface UserService {
 	 * @throws NameException 用户名错误
 	 * @throws PasswordException 密码错误
 	 */
-	/*
 	User login(String name, String password)
 		throws NameException, PasswordException;
-	*/
-	User login(String name,String password) throws UserNameException,UPasswordException;
+	
 	User regist(String name, String nick,
 		String password, String confirm )
 		throws UserExistException, 

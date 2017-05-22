@@ -17,8 +17,7 @@
 		where
 			cn_user_name = #{name}
 	</select>
-
-
+	
 	<insert id="saveUser"
 		parameterType="cn.tedu.note.entity.User">
 		insert into cn_user (
